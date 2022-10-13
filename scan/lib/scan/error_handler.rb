@@ -36,7 +36,7 @@ module Scan
           # so that an error isn't raised.
           # Raising an error prevents trainer from processing the xcresult
           return
-        when /Testing failed/
+        when /Testing failed/, /\*\* TEST BUILD FAILED \*\*/
           UI.build_failure!("Error building the application. #{details}")
         when /Testing started.*\*\* TEST FAILED \*\*/m, /Testing started.*\*\* TEST EXECUTE FAILED \*\*/m
           # Xcode 26+: If we see both "Testing started" and "** TEST FAILED **"
